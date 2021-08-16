@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: Kubernetes-deployment-feature
+  labels:
+    app: Kubernetes-app-feature
+spec: 
+  replicas: 3
+  selectors:
+    matchLabels:
+      app: Kubernetes-app-feature
+  template:
+    metadata:
+      labels:
+        app: Kubernetes-app-feature
+    spec: 
+      containers:
+      - name: Kubernetes-app-feature
+        image: ankit310/nagp-biannual:feature-latest
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: Kubernetes-service-feature
+spec:
+  type: NodePort
+  selector: 
+    app: Kubernetes-app-feature
+  ports:
+    - protocol: TCP
+      nodePort: 30157
+      port: 8080
+      targetPort: 8080
