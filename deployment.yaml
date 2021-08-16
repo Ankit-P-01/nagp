@@ -6,7 +6,7 @@ metadata:
     app: Kubernetes-app-feature
 spec: 
   replicas: 3
-  selectors:
+  selector:
     matchLabels:
       app: Kubernetes-app-feature
   template:
