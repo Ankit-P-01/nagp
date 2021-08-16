@@ -83,6 +83,7 @@ pipeline {
                 stage('Kubernetes deployment'){
                     steps{
                         echo "Kubernetes"
+                        bat "kubectl apply -f deployment.yaml"
                     }
                 }
             }
