@@ -38,7 +38,7 @@ pipeline {
       
         stage('SonarQube') {
             steps {
-              withSonarQubeEnv("TestSOnar"){
+              withSonarQubeEnv("TestSonar"){
                 bat "mvn sonar:sonar"
               }
             }
