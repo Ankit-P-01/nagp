@@ -47,7 +47,7 @@ pipeline {
         stage('Build docker') {
             steps {
                 echo 'Performing Build docker'
-                bat "docker build -t i-ankit310-feature:${BUILD_NUMBER} --no-cache -f Dockerfile"
+                bat "docker build -t i-ankit310-feature:${BUILD_NUMBER} --no-cache -f Dockerfile ."
             }
         }
         
