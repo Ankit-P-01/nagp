@@ -72,9 +72,19 @@ pipeline {
             }
         }
         
-        stage('Docker deployment'){
-            steps{
-                bat "docker run --name c-ankit310-feature -d -p 7200:8080 ${registry}:feature-latest"
+        stage("Deployment"){
+            parallel{
+                stage('Docker deployment'){
+                    steps{
+                        bat "docker run --name c-ankit310-feature -d -p 7400:8080 ${registry}:feature-latest"
+                    }
+                }
+                
+                stage('Kubernetes deployment'){
+                    steps{
+                        echo "Kubernetes"
+                    }
+                }
             }
         }
         
